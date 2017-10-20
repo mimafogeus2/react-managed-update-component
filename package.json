@@ -1,15 +1,15 @@
 {
-  "name": "react-context-toaster",
-  "version": "0.1.11",
+  "name": "react-managed-update-component",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mimafogeus2/react-context-toaster.git"
+    "url": "https://github.com/mimafogeus2/react-managed-update-component"
   },
   "author": "mimafogeus2",
   "bugs": {
-    "url": "https://github.com/mimafogeus2/react-context-toaster/issues"
+    "url": "https://github.com/mimafogeus2/react-managed-update-component/issues"
   },
-  "homepage": "https://github.com/mimafogeus2/react-context-toaster",
+  "homepage": "https://github.com/mimafogeus2/react-managed-update-component",
   "scripts": {
     "build": "webpack --config webpack.config.babel.js",
     "release": "webpack --p --config webpack.config.babel.js",
@@ -26,9 +26,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "create-react-class": "^15.6.0",
+    "create-react-class": "^15.6.2",
     "react": "^15.5.4",
-    "react-cookie": "^1.0.5"
+    "react-cookie": "^2.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.2",

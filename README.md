@@ -19,11 +19,11 @@ You get this:
 ```javascript
   getShouldComponentUpdateStateDefinition() => {
     numberOne: true,
-    someDataStructure: (a, b) => a.equals(b)
+    someDataStructure: (a, b) => !a.equals(b)
   }
   getShouldComponentUpdatePropsDefinition() => {
     stringTwo: true,
-    objectThree: deepEqual
+    objectThree: (a, b) => !deepEqual(a, b)
   }
 ```
 

@@ -20,14 +20,14 @@ So, instead of this:
 ```
 You get this:
 ```javascript
-  getShouldComponentUpdateStateDefinition() => {
+  getShouldComponentUpdateStateDefinition() => ({
     numberOne: true,
     someDataStructure: (a, b) => !a.customEquals(b)
-  }
-  getShouldComponentUpdatePropsDefinition() => {
+  })
+  getShouldComponentUpdatePropsDefinition() => ({
     stringTwo: true,
     objectThree: true
-  }
+  })
 ```
 
 By default, react-managed-update-component provides **value based**, **deep**, **optimized** comparison:
@@ -35,7 +35,15 @@ By default, react-managed-update-component provides **value based**, **deep**, *
 - **deep** - Changes in nested objects will also be detected, no matter the depth.
 - **optimized** - This code wouldn't run if the object's reference doesn't change or if the the object's keys were changed.
 
-If you'd like to compare in any other way - Check specific fields of object, check if a state/prop variable changed to a specific value, do a shallow comparison or run any other custom logic to decide if an update is necessary, you can **provide your own comparison functions, per key**, instead.
+If you'd like to compare a specific in any other way - Check specific fields of object, check if a state/prop variable changed to a specific value, do a shallow comparison or run any other custom logic to decide if an update is necessary, you can **provide your own comparison functions, per key**, instead.
+
+You can also **override the default comparator function** by writing your own. It should return a truthy value if the relationship between `currentValue` and `nextValue` should update the component, and a falsy value otherwise.
+```
+shouldUpdateComparator(currentValue, nextValue) {
+  const shouldUpdate = <comparisonLogic>
+  return shouldUpdate
+}
+```
 
 ## Why?
 - An easy way to encourage implementations of `shouldComponentUpdate` with more control and possible efficiency than `React.PureComponent`.

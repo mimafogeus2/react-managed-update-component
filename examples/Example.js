@@ -16,7 +16,7 @@ class Example extends ReactSmartComponent {
     </div>)
   }
   getShouldComponentUpdateStateDefinition() {
-    return { a: (a, b) => a !== b }
+    return { a: true }
   }
 }
 

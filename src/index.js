@@ -20,10 +20,17 @@ class ManagedUpdateComponent extends React.Component {
   shouldUpdateByObject(currentObj, nextObj, testsObject) {
     return Object.keys(testsObject).every(key => {
       if (testsObject[key] === false) { return true }
-      if (testsObject[key] === true) { return isDifferentWithDeepComparison(currentObj, nextObj[key]) }
+      if (testsObject[key] === true) {
+        return this.compareValues(currentObj, nextObj[key])
+      }
       if (testsObject[key].constructor.name === 'Function') { return testsObject[key](currentObj[key], nextObj[key]) }
       throw new Error('The value of a getShouldUpdateRelevantKeys object should be either boolean or function.')
     })
+  }
+  compareValues(curr, next) {
+    return this.shouldUpdateComparator
+      ? this.shouldUpdateComparator(curr, next)
+      : isDifferentWithDeepComparison(curr, next)
   }
 }
 

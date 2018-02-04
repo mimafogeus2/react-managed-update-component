@@ -1,8 +1,9 @@
 import React from 'react';
 
-import ReactSmartComponent from '../src/index'
+import ReactManagedStateComponent from '../src/index'
+import deepDifference from '../src/deepDifference'
 
-class Example extends ReactSmartComponent {
+class Example extends ReactManagedStateComponent {
   constructor(props) {
     super(props)
     this.state = { a: 0, b: 0 }
@@ -16,7 +17,7 @@ class Example extends ReactSmartComponent {
     </div>)
   }
   getShouldComponentUpdateStateDefinition() {
-    return { a: true }
+    return { a: deepDifference }
   }
 }
 

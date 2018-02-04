@@ -5,7 +5,9 @@ const packageJson = require('./package.json');
 
 export default () => ({
     entry: {
-        index: path.join(__dirname, 'src/index.js'),
+        abstractDifference: path.join(__dirname, 'src/abstractDifference.js'),
+        deepDifference: path.join(__dirname, 'src/deepDifference.js'),
+        index: path.join(__dirname, 'src/index.js')
     },
 
     output: {

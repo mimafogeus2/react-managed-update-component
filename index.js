@@ -1,4 +1,8 @@
 require('./dist/manifest');
 require('./dist/vendor');
 
-module.exports = require('./dist/index').default
+const ReactManagedUpdateComponent = require('./dist/index').default
+ReactManagedUpdateComponent.abstractDifference = require('./dist/abstractDifference').default
+ReactManagedUpdateComponent.deepDifference = require('./dist/deepDifference').default
+
+module.exports = ReactManagedUpdateComponent

@@ -21,7 +21,7 @@ class ManagedUpdateComponent extends React.Component {
     return Object.keys(testsObject).every(key => {
       if (testsObject[key] === false) { return true }
       if (testsObject[key] === true) {
-        return this.compareValues(currentObj, nextObj[key])
+        return this.compareValues(currentObj[key], nextObj[key])
       }
       if (testsObject[key].constructor.name === 'Function') { return testsObject[key](currentObj[key], nextObj[key]) }
       throw new Error('The value of a getShouldUpdateRelevantKeys object should be either boolean or function.')
